@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+		}
+		form {
+			background-color: #fff;
+			padding: 20px;
+			max-width: 600px;
+			margin: 20px auto;
+			box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+		}
+		h1 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			cursor: pointer;
+			float: right;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+        .range-value {
+            display:inline-block;
+            width:35px;
+            text-align:center;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        label.radio-label {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        input[type="radio"]:checked + label.radio-label {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <h1>Survey</h1>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="18" max="100" required>
+
+    <label for="satisfaction">How satisfied are you with the result?</label>
+    <div>
+        <input type="radio" id="satisfaction1" name="satisfaction" value="1" required>
+        <label for="satisfaction1" class="radio-label">1</label>
+        <input type="radio" id="satisfaction2" name="satisfaction" value="2">
+        <label for="satisfaction2" class="radio-label">2</label>
+        <input type="radio" id="satisfaction3" name="satisfaction" value="3">
+        <label for="satisfaction3" class="radio-label">3</label>
+        <input type="radio" id="satisfaction4" name="satisfaction" value="4">
+        <label for="satisfaction4" class="radio-label">4</label>
+        <input type="radio" id="satisfaction5" name="satisfaction" value="5">
+        <label for="satisfaction5" class="radio-label">5</label>
+    </div>
+
+    <label for="understanding">How easy was it to understand the processes?</label>
+    <div>
+        <input type="radio" id="understanding1" name="understanding" value="1" required>
+        <label for="understanding1" class="radio-label">1</label>
+        <input type="radio" id="understanding2" name="understanding" value="2">
+        <label for="understanding2" class="radio-label">2</label>
+        <input type="radio" id="understanding3" name="understanding" value="3">
+        <label for="understanding3" class="radio-label">3</label>
+        <input type="radio" id="understanding4" name="understanding" value="4">
+        <label for="understanding4" class="radio-label">4</label>
+        <input type="radio" id="understanding5" name="understanding" value="5">
+        <label for="understanding5" class="radio-label">5</label>
+    </div>
+
+    <label for="level">What was the level you felt the program understood you?</label>
+    <div>
+        <input type="radio" id="level1" name="level" value="1" required>
+        <label for="level1" class="radio-label">1</label>
+        <input type="radio" id="level2" name="level" value="2">
+        <label for="level2" class="radio-label">2</label>
+        <input type="radio" id="level3" name="level" value="3">
+        <label for="level3" class="radio-label">3</label>
+        <input type="radio" id="level4" name="level" value="4">
+        <label for="level4" class="radio-label">4</label>
+        <input type="radio" id="level5" name="level" value="5">
+        <label for="level5" class="radio-label">5</label>
+    </div>
+
+    <label for="like">What did you like?</label>
+    <textarea id="like" name="like"></textarea>
+
+    <label for="dislike">What would you like to change?</label>
+    <textarea id="dislike" name="dislike"></textarea>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    const satisfactionRadios = document.getElementsByName('satisfaction');
+    const satisfactionOutput = document.getElementById('satisfaction-output');
+
+    satisfactionRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            satisfactionOutput.innerHTML = this.value;
+        });
+    });
+
+    const understandingRadios = document.getElementsByName('understanding');
+    const understandingOutput = document.getElementById('understanding-output');
+
+    understandingRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            understandingOutput.innerHTML = this.value;
+        });
+    });
+
+    const levelRadios = document.getElementsByName('level');
+    const levelOutput = document.getElementById('level-output');
+
+    levelRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            levelOutput.innerHTML = this.value;
+        });
+    });
+</script>
+
+</body>
+</html>

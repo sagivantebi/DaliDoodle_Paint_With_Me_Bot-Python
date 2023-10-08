@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+<style>
+
+.container {
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  margin: 50px auto;
+  max-width: 70%;
+  max-height: 70%;
+  padding: 2em;
+  border-radius: 18px;
+  text-shadow: 5px 5px 10px black;
+  box-shadow: 0 0 20px 20px rgba(0,0,0,0.4);
+  font-size: 20px
+}
+
+body {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url(../static/background.png);
+    width:100%;
+    height:100%;
+	font-family: Arial, sans-serif;
+	color: white;
+	margin: 0;
+	padding: 0;
+
+
+}
+
+header {
+	color: #291010;
+	padding: 5px;
+}
+
+h1 {
+	margin: 0;
+}
+
+main {
+	color: white;
+<!--	padding: 10px;-->
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+}
+
+footer {
+
+	color: #1c1111;
+	padding: 10px;
+	text-align: center;
+}
+
+form{
+	color: white;
+	padding: 10px;
+}
+
+p{
+color: white;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+
+
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+font-family: "Sofia", sans-serif;  padding: 14px 16px;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #BF13B9;
+  color: white;
+}
+
+.img_return{
+  text-align: left;
+  align: left;
+  border-radius: 80px;
+  background-color: white;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.4);
+  color: white;
+  padding: 10px;
+
+}
+
+.img_reset{
+  margin-top: 50%;
+  border-radius: 80px;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: white;
+  padding: 10px;
+}
+.img_reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 3);
+}
+
+.img_reset:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 3);
+}
+
+.inlineForm{
+    display: inline-block;
+    color: white;
+	padding: 10px;
+	width : 15%
+}
+
+.img_shadow{
+  border-radius: 100px;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.4);
+}
+
+
+.containerInput {
+  display: flex;
+  align-items: center;
+}
+
+.containerInput input[type="text"] {
+  border-radius: 20px;
+  width: 85%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,5);
+  margin: 20px 0 1px 8%;
+}
+
+.containerInput input[type="submit"] {
+  width: 15%;
+  background-color: #BF13B9;
+  color: white;
+  padding: 14px 20px 14px 20px;
+    border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 18px 0 0px 1%;
+}
+
+.containerInput input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 3);
+}
+
+.containerInput input[type="submit"]:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 3);
+}
+
+.buttonPurple {
+  width: 13%;
+  background-color: #BF13B9; /* Purple */
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.8);
+  align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.buttonPurple:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 3);
+}
+
+.buttonPurple:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 3);
+}
+    #text-container {
+      animation: typing 0.5s steps(40, end);
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+/*.loader{*/
+/*  border-radius: 5px;*/
+/*  box-shadow: 0 0 5px 5px rgba(0,0,0,0.4);*/
+/*  padding: 5px;*/
+/*}*/
+
+
+
+</style>
+<div class="topnav">
+    <a class="active" href="">Dali Doodle</a>
+    <!--  <a href="#about">About</a>-->
+</div>
+
+<script>
+  function showLoader() {
+      var user_input = document.getElementById("user_input").value;
+      if (user_input != "") {
+          let button = document.getElementById("submitButton");
+          <!--    var button1 = document.getElementById("skip_button");-->
+          let loader = document.getElementById("loader");
+
+          button.style.display = "none";
+          <!--    button1.style.display = "none";-->
+          loader.style.display = "block";
+          loader.style.cursor = "pointer";
+          loader.style.width = "20%";
+          loader.style.height = "20%";
+          loader.style.margin = "-5% -5% -5% -5%";
+      }
+  }
+  function showLoader_yes_no() {
+    let button_yes = document.getElementById("submitButtonYes");
+    let button_no = document.getElementById("submitButtonNo");
+<!--    var button1 = document.getElementById("skip_button");-->
+    let loader = document.getElementById("loader2");
+
+    button_yes.style.display = "none";
+    button_no.style.display = "none";
+
+<!--    button1.style.display = "none";-->
+    loader.style.display = "inline-block";
+    loader.style.cursor = "pointer";
+    loader.style.width = "20%";
+    loader.style.height = "20%";
+    loader.style.margin = "-5% -5% -5% -5%";
+    loader.style.marginLeft = "40%";
+
+  }
+
+    function showLoader_enhancement() {
+    let great_button= document.getElementById("great");
+    let more_button= document.getElementById("more");
+    let again_button= document.getElementById("again");
+    let original_button= document.getElementById("original");
+<!--    var button1 = document.getElementById("skip_button");-->
+    let loader = document.getElementById("loader3");
+
+    great_button.style.display = "none";
+    more_button.style.display = "none";
+    again_button.style.display = "none";
+    original_button.style.display = "none";
+
+<!--    button1.style.display = "none";-->
+    loader.style.display = "inline-block";
+    loader.style.cursor = "pointer";
+    loader.style.width = "20%";
+    loader.style.height = "20%";
+    loader.style.margin = "-5% -5% -5% -5%";
+    loader.style.marginLeft = "40%";
+
+  }
+
+function userInputSetNo() {
+  var inputField = document.getElementById("user_input");
+  inputField.value = "n";
+}
+</script>
+<head>
+    <title>Dali Doodle</title>
+</head>
+<body>
+<div class="container">
+        <form class="inlineForm" action="{{ url_for('return_back') }}" method="POST">
+            <input type="hidden" name="user_id" value="{{ user_id }}">
+<!--            <button class="img_return" type="submit"><img src="https://www.svgrepo.com/show/274262/return.svg"-->
+<!--                                                         alt="return" width="15" height="10"/></button>-->
+        </form>
+
+        <footer><img class="img_shadow" src="https://cdn.dribbble.com/users/829077/screenshots/6314208/sirilike.gif"
+                     alt="this slowpoke moves" width="100" height="100"/></footer>
+    <main>
+        <img src="{{my_picture}}"/>
+        <div>{{ description }}</div>
+        {% for line in my_data.split('\n') %}
+          </br>
+          <input type="hidden" class="line-input" value="{{ line }}"/>
+          <div class="text-container"></div>
+        {% endfor %}
+        <!-- content goes here -->
+
+        <div class="chat-area">
+            <!-- assistant responses go here -->
+            <!--		<p>{{ my_data }}</p>-->
+        </div>
+        <form id="chat-form-yes-no" style="display: none" action="{{ url_for('submit')}}" method="POST">
+            <span class="containerInput">
+                <input type="hidden" name="user_id" value="{{ user_id }}">
+                <button type="submit" class="buttonPurple" style="width: 100%;padding: 14px 50px 14px; margin: 18px;" id="submitButtonYes" name="user_input" value="y" onclick="showLoader_yes_no();">Yes, let's go </button>
+                <button type="submit" class="buttonPurple" style="width: 100%;padding: 14px 50px 14px; margin: 18px;" id="submitButtonNo" name="user_input" value="n" onclick="showLoader_yes_no();">No, I'd rather not</button>
+                <img id="loader2" style="display: none;" src="https://i.pinimg.com/originals/6b/67/cb/6b67cb8a166c0571c1290f205c513321.gif" alt="Loader Animation"/>
+            </span>
+        </form>
+        <form id="chat-form-do-you-like-the-enhancement" style="display: none" action="{{ url_for('submit')}}" method="POST">
+            <span class="containerInput">
+                <input type="hidden" name="user_id" value="{{ user_id }}">
+                <button type="submit" class="buttonPurple" style="width: 100%;padding: 14px 50px 14px; margin: 18px;" id="great" name="user_input" value="great" onclick="showLoader_enhancement();">Great, let’s paint</button>
+                <button type="submit" class="buttonPurple" style="width: 100%;padding: 14px 50px 14px; margin: 18px;" id="more" name="user_input" value="more" onclick="showLoader_enhancement();">I like it, but I want more</button>
+                <button type="submit" class="buttonPurple" style="width: 100%;padding: 14px 50px 14px; margin: 18px;" id="again" name="user_input" value="again" onclick="showLoader_enhancement();">Give it another try</button>
+                 <button type="submit" class="buttonPurple" style="width: 100%;padding: 14px 50px 14px; margin: 18px;" id="original" name="user_input" value="original" onclick="showLoader_enhancement();">No, paint the original</button>
+                <img id="loader3" style="display: none;" src="https://i.pinimg.com/originals/6b/67/cb/6b67cb8a166c0571c1290f205c513321.gif" alt="Loader Animation"/>
+            </span>
+        </form>
+        <form id="chat-form" action="{{ url_for('submit')}}" method="POST">
+            <span class="containerInput">
+                <input type="hidden" name="user_id" value="{{ user_id }}">
+                <input type="text" id="user_input" name="user_input" placeholder="Enter your text" required>
+                <input type="submit" id="submitButton" value="Send" onclick="showLoader()">
+                <img id="loader" style="display: none;" src="https://i.pinimg.com/originals/6b/67/cb/6b67cb8a166c0571c1290f205c513321.gif" alt="Loader Animation"/>
+            </span>
+        </form>
+        {# Add print picture button #}
+        <div style="display: inline-flex">
+                <button class="buttonPurple" style="width: 100%;padding: 14px 4px 14px; margin: 26px;"  id="speak">Read Me The Instructions</button>
+            <form action="{{ url_for('reset_counter') }}" method="POST">
+                <input type="hidden" name="user_id" value="{{ user_id }}">
+                <button id="reset_button" class="img_reset" type="submit"><img src="https://pic.onlinewebfonts.com/svg/img_341620.png"
+                                                             alt="reset" width="15" height="10"/></button>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+<script>
+
+
+
+
+
+const userInput = document.getElementById('user_input');
+const chatArea = document.querySelector('.chat-area');
+
+function displayMessage(message, sender) {
+	const messageWrapper = document.createElement('div');
+	const messageText = document.createElement('p');
+
+	messageText.innerText = message;
+	messageWrapper.classList.add('message');
+	messageWrapper.classList.add(sender);
+
+	messageWrapper.appendChild(messageText);
+	chatArea.appendChild(messageWrapper);
+
+}
+
+<!--Google speak part-->
+const user_input = [];
+{% for line in my_data.split('\n') %}
+    user_input.push("{{ line }}")
+{% endfor %}
+console.log(user_input)
+
+
+// Check if I expect yes or no answer change the input form to buttons
+if (user_input.some(str => str.includes("Do you like this version of the prompt?")) || user_input.some(str => str.includes("Do you like this new addition to the prompt?"))){
+    let chat_form = document.getElementById("chat-form");
+    chat_form.style.display = "none";
+
+    let enhanceForm = document.getElementById("chat-form-do-you-like-the-enhancement");
+    enhanceForm.style.display = "block";
+
+  } else if (user_input.some(str => str.includes("(y/n)"))){
+    let chat_form = document.getElementById("chat-form");
+    chat_form.style.display = "none";
+    let submitButtonYes = document.getElementById("chat-form-yes-no");
+    submitButtonYes.style.display = "block";
+    if (user_input.some(str => str.includes("Would you like to draw another painting together"))) {
+
+    }
+
+  } else if (user_input.some(str => str.includes("(again/skip)"))){
+    let chat_form = document.getElementById("chat-form");
+    chat_form.style.display = "none";
+    let YesNoForm = document.getElementById("chat-form-yes-no");
+    YesNoForm.style.display = "block";
+    let submitButtonYes1 = document.getElementById("submitButtonYes");
+    submitButtonYes1.value = "Again";
+    submitButtonYes1.textContent = "Again";
+    let submitButtonNo = document.getElementById("submitButtonNo");
+    submitButtonNo.value = "Skip";
+    submitButtonNo.textContent = "Skip";
+}
+
+
+
+const voiceList = "Microsoft Mark - English (United States)"
+const speechBtn = document.getElementById("speak")
+
+let synth = speechSynthesis,
+isSpeaking = true;
+
+function textToSpeech(text){
+    let utterance = new SpeechSynthesisUtterance(text);
+    for(let voice of synth.getVoices()){
+        if(voice.name === voiceList.value){
+            utterance.voice = voice;
+        }
+    }
+    synth.speak(utterance);
+}
+
+speechBtn.addEventListener("click", e =>{
+    e.preventDefault();
+    if(user_input !== ""){
+        if(!synth.speaking){
+            for (line in user_input){
+                console.log(user_input[line])
+                textToSpeech(user_input[line]);
+            }
+        }
+    }
+});
+var lineInputs = document.getElementsByClassName('line-input');
+var containers = document.getElementsByClassName("text-container");
+var delay = 200; // Delay between each word (in milliseconds)
+
+function displayText() {
+  for (var i = 0; i < lineInputs.length; i++) {
+    var text = lineInputs[i].value;
+    var words = text.split(' ');
+
+    (function(container, words) {
+      var wordIndex = 0;
+      var interval = setInterval(function() {
+        if (wordIndex >= words.length) {
+          clearInterval(interval);
+          return;
+        }
+        container.textContent += words[wordIndex] + " ";
+        wordIndex++;
+      }, delay);
+    })(containers[i], words);
+  }
+}
+
+displayText();
+
+
+// measure the time the user is on the page, which button he clicked and send it to the server
+function sendData(data) {
+  fetch('/measures', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => {
+      // Handle the response from the server if needed
+    })
+    .catch(error => {
+      // Handle any errors that occurred during the request
+        console.log("something went wrong")
+        console.log(error)
+    });
+}
+
+// Record page entry timestamp
+var pageEntryTime = new Date().getTime();
+
+function add_measures(event) {
+  var buttonId = event.target.id; // Get the button ID or any other relevant information
+  var userID = document.querySelector('input[name="user_id"]').value;
+  var pageTime = (new Date().getTime() - pageEntryTime)/1000 ; // Calculate the time spent on the page
+  var user_answer = document.getElementById('user_input').value;
+  var question = user_input
+  var button_value = event.target.value;
+  // Record button click and page time data
+  var data = {
+    buttonId: buttonId,
+    userID: userID,
+    pageTime: pageTime,
+    question: question,
+    user_answer: user_answer,
+    button_value: button_value
+  };
+    // Send the data to the server
+  sendData(data);
+  console.log("data sent")
+}
+
+// Example button click event listener
+document.getElementById('submitButton').addEventListener('click', add_measures);
+
+// add event listener to speak button
+document.getElementById('speak').addEventListener('click', add_measures);
+
+// add event listener to reset button
+document.getElementById('reset_button').addEventListener('click', add_measures);
+
+// add event listener to great button
+document.getElementById('great').addEventListener('click', add_measures);
+
+// add event listener to more button
+document.getElementById('more').addEventListener('click', add_measures);
+
+// add event listener to again button
+document.getElementById('again').addEventListener('click', add_measures);
+
+// add event listener to original button
+document.getElementById('original').addEventListener('click', add_measures);
+
+// add event listener to yes button
+document.getElementById('submitButtonYes').addEventListener('click', add_measures);
+
+// add event listener to no button
+document.getElementById('submitButtonNo').addEventListener('click', add_measures);
+
+
+</script>
+</body>
+</html>

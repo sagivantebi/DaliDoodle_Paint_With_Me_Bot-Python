@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../static/background.png);
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  margin: 50px auto;
+  max-width: 70%;
+  max-height: 70%;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+select,
+input[type="number"],
+input[type="range"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.range-value {
+    display:inline-block;
+    width:35px;
+    text-align:center;
+}
+
+.submit-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0069d9;
+}
+
+.rankings {
+  margin-top: 40px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+#rankings-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ranking-card {
+  width: 200px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.ranking-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.ranking-card p {
+  margin-bottom: 5px;
+}
+
+.ranking-card .score {
+  font-size: 32px;
+  font-weight: bold;
+}
+button {
+  width: 100%;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align: center;
+  align: center;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+
+
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+font-family: "Sofia", sans-serif;  padding: 14px 16px;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #BF13B9;
+  color: white;
+}
+.binary-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.label1 {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #BF13B9;
+  color: #fff;
+  border-color: #333;
+}
+
+        .range-value {
+            display:inline-block;
+            width:35px;
+            text-align:center;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        label.radio-label {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        input[type="radio"]:checked + label.radio-label {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+
+
+</style>
+<head>
+    <div class="topnav">
+        <a class="active" href="">Dali Doodle</a>
+        <!--  <a href="#about">About</a>-->
+    </div>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <title>App Ranking Page</title>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the Feedback Form</h1>
+    <h3>Complete the form to the best of your ability</h3>
+    <form name="chat-form" action="{{ url_for('ranking')}}" method="POST">
+        <input type="hidden" name="prompt" value="{{ prompt }}">
+        <input type="hidden" name="url" value="{{ url }}">
+        <input type="hidden" name="user_id" value="{{ user_id }}">
+        <input type="hidden" name="first_prompt" value="{{ first_prompt }}">
+        <input type="hidden" name="user_enhance_prompt" value="{{ user_enhance_prompt }}">
+        <input type="hidden" name="gpt_prompt" value="{{ gpt_prompt }}">
+
+        <div class="form-group">
+            <label for="improvements">Enter your Prolific ID:</label>
+            <textarea id="improvements" name="improvements" rows="1" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="not-specified">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="13" max="120" required>
+        </div>
+        <div class="form-group">
+            <div class="binary-choice">
+                <label>First time:</label>
+                <div class="option">
+                    <input type="radio" id="yes-option" name="choice" value="yes"/>
+                    <label class="label1" for="yes-option">Yes</label>
+
+
+                    <input type="radio" id="no-option" name="choice" value="no"/>
+                    <label class="label1" for="no-option">No</label>
+                </div>
+            </div>
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label for="satisfaction">On this scale, How satisfied were you with the generated image?</label>-->
+<!--            <input type="range" id="satisfaction" name="satisfaction" min="1" max="10" value="5" step="1" required>-->
+<!--        </div>-->
+        <label for="satisfaction">On this scale, how satisfied were you with the generated image? (5 = very satisfied | 1 = Not at all)</label>
+    <div class="form-group">
+        <input type="radio" id="satisfaction1" name="satisfaction" value="1" required>
+        <label for="satisfaction1" class="radio-label">1</label>
+        <input type="radio" id="satisfaction2" name="satisfaction" value="2">
+        <label for="satisfaction2" class="radio-label">2</label>
+        <input type="radio" id="satisfaction3" name="satisfaction" value="3">
+        <label for="satisfaction3" class="radio-label">3</label>
+        <input type="radio" id="satisfaction4" name="satisfaction" value="4">
+        <label for="satisfaction4" class="radio-label">4</label>
+        <input type="radio" id="satisfaction5" name="satisfaction" value="5">
+        <label for="satisfaction5" class="radio-label">5</label>
+    </div>
+
+<!--        <div class="form-group">-->
+<!--            <label for="recommendation">On this scale, how close was the prompt to the final image?</label>-->
+<!--            <input type="range" id="recommendation" name="recommendation" min="1" max="10" value="5" step="1" required>-->
+<!--        </div>-->
+
+
+        <label for="recommendation">On this scale, how close was the prompt to the final image? (5 = very close | 1 = Not at all)</label>
+        <div class="form-group">
+        <input type="radio" id="recommendation1" name="recommendation" value="1" required>
+        <label for="recommendation1" class="radio-label">1</label>
+        <input type="radio" id="recommendation2" name="recommendation" value="2">
+        <label for="recommendation2" class="radio-label">2</label>
+        <input type="radio" id="recommendation3" name="recommendation" value="3">
+        <label for="recommendation3" class="radio-label">3</label>
+        <input type="radio" id="recommendation4" name="recommendation" value="4">
+        <label for="recommendation4" class="radio-label">4</label>
+        <input type="radio" id="recommendation5" name="recommendation" value="5">
+        <label for="recommendation5" class="radio-label">5</label>
+    </div>
+
+
+<!--        <div class="form-group">-->
+<!--            <label for="overall-experience">On this scale, how would you rate your overall experience with the-->
+<!--                app?</label>-->
+<!--            <input type="range" id="overall-experience" name="overall-experience" min="1" max="10" value="5" step="1"-->
+<!--                   required>-->
+
+            <label for="overall-experience">On this scale, how would you rate your overall experience with the app? (5 = very good | 1 = very bad)</label>
+        <div class="form-group">
+        <input type="radio" id="overall-experience1" name="overall-experience" value="1" required>
+        <label for="overall-experience1" class="radio-label">1</label>
+        <input type="radio" id="overall-experience2" name="overall-experience" value="2">
+        <label for="overall-experience2" class="radio-label">2</label>
+        <input type="radio" id="overall-experience3" name="overall-experience" value="3">
+        <label for="overall-experience3" class="radio-label">3</label>
+        <input type="radio" id="overall-experience4" name="overall-experience" value="4">
+        <label for="overall-experience4" class="radio-label">4</label>
+        <input type="radio" id="overall-experience5" name="overall-experience" value="5">
+        <label for="overall-experience5" class="radio-label">5</label>
+    </div>
+
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="ease-of-use">On this scale, How relevant were the additions made to the text using our-->
+<!--                suggestions?</label>-->
+<!--            <input type="range" id="ease-of-use" name="ease-of-use" min="1" max="10" value="5" step="1" required>-->
+
+<!--        </div>-->
+
+
+
+        <label for="ease-of-use">On this scale, how relevant were the additions made to the text using our suggestions? (5 = very relevant | 1 = Not at all)</label>
+        <div class="form-group">
+        <input type="radio" id="ease-of-use1" name="ease-of-use" value="1" required>
+        <label for="ease-of-use1" class="radio-label">1</label>
+        <input type="radio" id="ease-of-use2" name="ease-of-use" value="2">
+        <label for="ease-of-use2" class="radio-label">2</label>
+        <input type="radio" id="ease-of-use3" name="ease-of-use" value="3">
+        <label for="ease-of-use3" class="radio-label">3</label>
+        <input type="radio" id="ease-of-use4" name="ease-of-use" value="4">
+        <label for="ease-of-use4" class="radio-label">4</label>
+        <input type="radio" id="ease-of-use5" name="ease-of-use" value="5">
+        <label for="ease-of-use5" class="radio-label">5</label>
+    </div>
+
+
+        <div class="form-group">
+            <label for="issues">Did you encounter any issues while using the app?</label>
+            <textarea id="issues" name="issues" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="question-feedback">Is there a question that you would like to be asked next time?</label>
+            <textarea id="next-time-question" name="next-time-question" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="question-feedback">Is there a question that the program asked you that you did not
+                understand?</label>
+            <textarea id="question-feedback" name="question-feedback" rows="4" required></textarea>
+        </div>
+
+        <button>Submit Form</button>
+    </form>
+
+</div>
+
+<script>
+    const satisfactionRadios = document.getElementsByName('satisfaction');
+    const satisfactionOutput = document.getElementById('satisfaction-output');
+
+    satisfactionRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            satisfactionOutput.innerHTML = this.value;
+        });
+    });
+
+    const recommendationRadios = document.getElementsByName('recommendation');
+    const recommendationOutput = document.getElementById('recommendation-output');
+
+    recommendationRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            recommendationOutput.innerHTML = this.value;
+        });
+    });
+
+    const levelRadios = document.getElementsByName('overall-experience');
+    const levelOutput = document.getElementById('overall-experience');
+
+    levelRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            levelOutput.innerHTML = this.value;
+        });
+    });
+
+
+
+    const ease-of-useRadios = document.getElementsByName('ease-of-use');
+    const ease-of-useOutput = document.getElementById('ease-of-use');
+
+    ease-of-useRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            ease-of-useOutput.innerHTML = this.value;
+        });
+    });
+</script>
+
+</body>
+</html>
