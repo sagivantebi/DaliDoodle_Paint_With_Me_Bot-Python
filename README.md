@@ -1,8 +1,8 @@
 
 # DaliDoodle_Paint_With_Me_Bot-Python
-Paint With Me Chat Bot :) c
+Paint With Me Chat Bot :)
 
-reating a Painting Description together and afterward Painting it.
+Creating a Painting Description together and afterward Painting it.
 
 
 https://github.com/sagivantebi/DaliDoodle_Paint_With_Me_Bot-Python/assets/84729141/950bbbdf-210e-42b1-a8fe-a27e91915df9
